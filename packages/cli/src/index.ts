@@ -147,7 +147,7 @@ async function addComponent(component: string) {
     }
 
     if (componentData.dependencies && componentData.dependencies.length > 0) {
-      console.log(blue(`Installing dependencies for ${component}...`));
+      console.log(blue(`\nInstalling dependencies for ${component}...`));
 
       await new Promise((resolve, reject) => {
         const child = spawn('pnpm', ['add', ...componentData.dependencies], {
@@ -180,11 +180,32 @@ program
     let componentsToAdd = components;
 
     if (componentsToAdd.length === 0) {
+      console.log(blue('\nFetching available components...'));
+      let availableComponents = [];
+
+      try {
+        const response = await fetch(`${REGISTRY_BASE_URL}/index.json`);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        availableComponents = await response.json();
+      } catch (error) {
+        console.log(red('\n✖ Could not fetch component list from registry.'));
+        console.log(yellow('Please check your network connection or repository URL.'));
+        process.exit(1);
+      }
+
+      const choices = availableComponents.map((c: any) => {
+        return { title: c.name, value: c.name };
+      });
+
       const response = await prompts({
         type: 'multiselect',
         name: 'selected',
         message: 'Which components would you like to add?',
-        choices: [{ title: 'button', value: 'button' }],
+        choices: choices,
         instructions: false,
       });
 

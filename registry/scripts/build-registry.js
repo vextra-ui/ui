@@ -55,4 +55,10 @@ components.forEach((component) => {
   console.log(`✅ Created ${component.name}.json`);
 });
 
+const indexData = components.map((c) => {
+  return { name: c.name };
+});
+
+fs.writeFileSync(path.join(OUTPUT_DIR, 'index.json'), JSON.stringify(indexData, null, 2));
+console.log(`✅ Created index.json`);
 console.log('Registry build complete!');
