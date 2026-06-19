@@ -1,0 +1,24 @@
+{
+  "name": "vextra-ui-root",
+  "private": true,
+  "scripts": {
+    "dev:docs": "pnpm --filter docs dev",
+    "build:registry": "node registry/scripts/build-registry.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=11.0.0"
+  },
+  "packageManager": "pnpm@11.8.0",
+  "devDependencies": {
+    "@base-ui/react": "^1.6.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vanilla-extract/css": "^1.20.1",
+    "@vanilla-extract/recipes": "^0.5.7",
+    "prettier": "^3.8.4",
+    "typescript": "^6.0.3"
+  }
+}

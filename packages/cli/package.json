@@ -1,0 +1,35 @@
+{
+  "name": "vextra-cli",
+  "version": "0.1.0",
+  "description": "CLI for Vextra UI",
+  "main": "dist/index.js",
+  "bin": {
+    "vextra": "dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup src/index.ts --minify"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "cli"
+  ],
+  "author": {
+    "name": "Aleksei Zhukov",
+    "email": "mr.alek3@gmail.com",
+    "url": "https://github.com/mralek3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^15.0.0",
+    "kolorist": "^1.8.0",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
+  }
+}
