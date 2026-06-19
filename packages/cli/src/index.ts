@@ -72,13 +72,13 @@ program
         type: 'text',
         name: 'componentsPath',
         message: 'Where would you like to store your components?',
-        initial: 'components/ui',
+        initial: 'src/components/ui',
       },
       {
         type: 'text',
         name: 'themePath',
         message: 'Where would you like to store the theme file (vars.css.ts)?',
-        initial: 'styles/vars.css.ts',
+        initial: 'src/styles/vars.css.ts',
       },
     ]);
 

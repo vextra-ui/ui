@@ -1,10 +1,16 @@
 {
-  "name": "vextra-cli",
-  "version": "0.1.0",
+  "name": "vextra",
+  "version": "0.1.1",
   "description": "CLI for Vextra UI",
   "main": "dist/index.js",
   "bin": {
-    "vextra": "dist/index.js"
+    "vextra": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "dev": "tsup src/index.ts --watch",

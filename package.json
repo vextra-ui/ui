@@ -4,7 +4,7 @@
   "scripts": {
     "dev:docs": "pnpm --filter docs dev",
     "build:registry": "node registry/scripts/build-registry.js",
-    "build:cli": "pnpm --filter vextra-cli build",
+    "build:cli": "pnpm --filter ./packages/cli build",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

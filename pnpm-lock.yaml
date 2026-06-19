@@ -55,15 +55,6 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
-  test-app:
-    dependencies:
-      '@base-ui/react':
-        specifier: ^1.6.0
-        version: 1.6.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@vanilla-extract/recipes':
-        specifier: ^0.5.7
-        version: 0.5.7(@vanilla-extract/css@1.20.1)
-
 packages:
 
   '@babel/runtime@7.29.7':
