@@ -1,0 +1,14 @@
+{
+  "name": "input",
+  "dependencies": [],
+  "files": [
+    {
+      "name": "input.tsx",
+      "content": "import * as React from 'react';\r\nimport { input } from './input.css';\r\n\r\nexport interface InputProps extends React.ComponentProps<'input'> {\r\n  className?: string;\r\n}\r\n\r\nconst Input = React.forwardRef<HTMLInputElement, InputProps>(\r\n  ({ className, type, ...props }, ref) => {\r\n    return (\r\n      <input\r\n        type={type}\r\n        className={`${input} ${className || ''}`.trim()}\r\n        ref={ref}\r\n        data-slot=\"input\"\r\n        {...props}\r\n      />\r\n    );\r\n  },\r\n);\r\n\r\nInput.displayName = 'Input';\r\n\r\nexport { Input };\r\n"
+    },
+    {
+      "name": "input.css.ts",
+      "content": "import { style } from '@vanilla-extract/css';\r\n\r\nexport const input = style({\r\n  display: 'flex',\r\n  height: '2.25rem',\r\n  width: '100%',\r\n  minWidth: 0,\r\n  borderRadius: 'calc(var(--radius) - 2px)',\r\n  border: '1px solid hsl(var(--input))',\r\n  backgroundColor: 'transparent',\r\n  padding: '0.25rem 0.75rem',\r\n  fontSize: '1rem',\r\n  boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',\r\n  transitionProperty: 'color, box-shadow, border-color',\r\n  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',\r\n  transitionDuration: '150ms',\r\n  outline: 'none',\r\n\r\n  '@media': {\r\n    'screen and (min-width: 768px)': {\r\n      fontSize: '0.875rem',\r\n    },\r\n  },\r\n\r\n  '::selection': {\r\n    backgroundColor: 'hsl(var(--primary))',\r\n    color: 'hsl(var(--primary-foreground))',\r\n  },\r\n\r\n  '::placeholder': {\r\n    color: 'hsl(var(--muted-foreground))',\r\n  },\r\n\r\n  selectors: {\r\n    '&:focus-visible': {\r\n      borderColor: 'hsl(var(--ring))',\r\n      boxShadow: '0 0 0 3px hsla(var(--ring) / 0.5)',\r\n    },\r\n    '&:disabled': {\r\n      pointerEvents: 'none',\r\n      cursor: 'not-allowed',\r\n      opacity: 0.5,\r\n    },\r\n    '&[aria-invalid=\"true\"]': {\r\n      borderColor: 'hsl(var(--destructive))',\r\n      boxShadow: '0 0 0 3px hsla(var(--destructive) / 0.2)',\r\n    },\r\n    '.dark &[aria-invalid=\"true\"]': {\r\n      boxShadow: '0 0 0 3px hsla(var(--destructive) / 0.4)',\r\n    },\r\n    '.dark &': {\r\n      backgroundColor: 'hsla(var(--input) / 0.3)',\r\n    },\r\n    '&::file-selector-button': {\r\n      display: 'inline-flex',\r\n      height: '1.75rem',\r\n      border: 0,\r\n      backgroundColor: 'transparent',\r\n      fontSize: '0.875rem',\r\n      fontWeight: 500,\r\n      color: 'hsl(var(--foreground))',\r\n    },\r\n  },\r\n});\r\n"
+    }
+  ]
+}
